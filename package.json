@@ -23,6 +23,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "cypress-mochawesome-reporter": "^3.3.0"
+    "cypress-mochawesome-reporter": "^3.3.0",
+    "cypress-real-events": "^1.7.6"
   }
 }
