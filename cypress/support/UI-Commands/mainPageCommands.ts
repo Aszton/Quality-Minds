@@ -5,7 +5,9 @@ declare global {
   namespace Cypress {
     interface Chainable {
       openMainPage(): Chainable<void>;
-      changeLanguageToGerman(): Chainable<void>;
+      changeLanguageToGerman(url: string): Chainable<void>;
+      clickAutomatisiertesTesten(): Chainable<void>;
+      clickTestAutomation(): Chainable<void>;
     }
   }
 }
@@ -13,24 +15,50 @@ declare global {
 Cypress.Commands.add("openMainPage", () => {
   cy.visit("/");
   cy.title().should("eq", "QualityMinds | Homepage");
+  cy.get(mainPage.flagEN).should("be.visible").and("have.attr", "alt", "EN");
   cy.get("body").then((body) => {
-    if (body.find(mainPage.containerCookies)) {
-      cy.get(mainPage.buttonAllowCookies).click();
+    if (body.find(mainPage.cookies)) {
+      cy.get(mainPage.buttonAllowCookies).click({ force: true });
     }
   });
 });
 
-Cypress.Commands.add("changeLanguageToGerman", () => {
+Cypress.Commands.add("changeLanguageToGerman", (url) => {
   cy.get(mainPage.containerNavTop)
-    .find(mainPage.DEflag)
+    .find(".sub-menu")
+    .find('[alt="DE"]')
     .eq(0)
-    .children()
-    .should(
-      "have.attr",
-      "src",
-      "https://r9w2g9k2.rocketcdn.me/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png"
-    )
-    .and("have.attr", "alt", "DE")
+    .invoke("show")
+    .realHover()
+    .should("have.attr", "src", mainPage.imageDE)
     .click({ force: true });
-  cy.url().should("eq", "https://qualityminds.com/de/");
+  cy.url().should("include", url);
+});
+
+Cypress.Commands.add("clickAutomatisiertesTesten", () => {
+  cy.get(mainPage.tabPortfolio)
+    .should("include.text", "PORTFOLIO")
+    .invoke("show")
+    .realHover();
+  cy.get(mainPage.automatisiertesTesten)
+    .eq(0)
+    .should("contain.text", "Automatisiertes Testen")
+    .invoke("show")
+    .realHover()
+    .click({ force: true });
+  cy.url().should("include", "/automatisiertes-testen/");
+});
+
+Cypress.Commands.add("clickTestAutomation", () => {
+  cy.get(mainPage.tabServices)
+    .should("include.text", "SERVICES")
+    .invoke("show")
+    .realHover();
+  cy.get(mainPage.testAutomation)
+    .eq(0)
+    .should("contain.text", "Test Automation")
+    .invoke("show")
+    .realHover()
+    .click({ force: true });
+  cy.url().should("include", "/test-automation/");
 });
