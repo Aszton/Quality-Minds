@@ -3,7 +3,7 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-     strategy:
+    strategy:
       fail-fast: false
       matrix:
         containers: [1, 2, 3, 4, 5]
