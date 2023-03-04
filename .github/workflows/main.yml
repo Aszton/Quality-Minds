@@ -1,12 +1,10 @@
-name: TypeScript Cypress Tests
+name: Quality Minds Cypress Tests
 on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
