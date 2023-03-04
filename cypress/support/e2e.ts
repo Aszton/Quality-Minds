@@ -1,3 +1,4 @@
-import "./commands";
+import "cypress-real-events";
 import "./UI-Commands/mainPageCommands";
-import "./UI-Commands/KontaktiereUnsCommands";
+import "./UI-Commands/kontaktiereUnsCommands";
+import "./UI-Commands/eventsCommands";

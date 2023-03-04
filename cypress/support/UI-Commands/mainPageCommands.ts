@@ -8,6 +8,7 @@ declare global {
       changeLanguageToGerman(url: string): Chainable<void>;
       clickAutomatisiertesTesten(): Chainable<void>;
       clickTestAutomation(): Chainable<void>;
+      hoverOnAbboutUsAndOpenEventsTab(url: string): Chainable<void>;
     }
   }
 }
@@ -61,4 +62,18 @@ Cypress.Commands.add("clickTestAutomation", () => {
     .realHover()
     .click({ force: true });
   cy.url().should("include", "/test-automation/");
+});
+
+Cypress.Commands.add("hoverOnAbboutUsAndOpenEventsTab", (url) => {
+  cy.get(mainPage.containerNavTop)
+    .find(mainPage.tabAboutUs)
+    .should("be.visible")
+    .and("contain.text", "ABOUT US")
+    .realHover();
+  cy.get(mainPage.tabEvents)
+    .eq(0)
+    .should("be.visible")
+    .and("contain.text", "Events")
+    .click();
+  cy.url().should("contain", url);
 });
