@@ -11,7 +11,7 @@ export default defineConfig({
     viewportHeight: 720,
     defaultCommandTimeout: 7000,
     requestTimeout: 7000,
-    // projectId: "",
+    projectId: "7y2nx6",
     setupNodeEvents(on, config) {
       require("cypress-mochawesome-reporter/plugin")(on);
     },
