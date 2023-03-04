@@ -1,12 +1,18 @@
-describe("Quality Minds", () => {
+describe("Quality Minds Tests", () => {
   it("test case 1", () => {
     cy.openMainPage();
-    cy.changeLanguageToGerman("/qualityminds.com/de/");
+    cy.changeLanguageToGerman("/de");
     cy.clickAutomatisiertesTesten();
     cy.verifyKontaktiereUnsButton();
     cy.openMainPage();
     cy.clickTestAutomation();
-    cy.changeLanguageToGerman("/automatisiertes-testen/");
+    cy.changeLanguageToGerman("/automatisiertes-testen");
     cy.verifyKontaktiereUnsButton();
+  });
+  it("test case 2", () => {
+    cy.openMainPage();
+    cy.hoverOnAbboutUsAndOpenEventsTab("/events");
+    cy.searchEvent("2021");
+    cy.verifyThereAreNoEvents("2021");
   });
 });

@@ -12,8 +12,17 @@ export const mainPage = {
     '[href="https://qualityminds.com/de/portfolio/qa-kernkompetenzen/automatisiertes-testen/"]',
   testAutomation:
     '[href="https://qualityminds.com/services/core-qa-services/test-automation/"]',
+  tabAboutUs: '[href="https://qualityminds.com/about-us/"]',
+  tabEvents: '[href="https://qualityminds.com/events/"]',
 };
 
 export const kontaktiereUns = {
   buttonKontaktiereUns: ".et_pb_button",
+};
+
+export const events = {
+  inputEvent: "#tribe-events-events-bar-keyword",
+  buttonSearch: ".tribe-common-c-btn",
+  containerMessage:
+    ".tribe-common-c-loader__dot > .tribe-events-c-messages__message",
 };
