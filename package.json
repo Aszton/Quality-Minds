@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "chrome-headed": "npx cypress run --browser chrome --headed",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress-dashboad": "npx cypress run --browser chrome --record --key 5c36a0cc-7695-47b2-a3b8-71cb10a8e905"
   },
   "repository": {
     "type": "git",
