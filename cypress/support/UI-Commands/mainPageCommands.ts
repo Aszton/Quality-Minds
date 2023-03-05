@@ -9,7 +9,6 @@ declare global {
       clickAutomatisiertesTesten(): Chainable<void>;
       clickTestAutomation(): Chainable<void>;
       hoverOnAbboutUsAndOpenEventsTab(url: string): Chainable<void>;
-      openStellenangebotePage(): Chainable<void>;
     }
   }
 }
@@ -27,8 +26,8 @@ Cypress.Commands.add("openMainPage", () => {
 
 Cypress.Commands.add("changeLanguageToGerman", (url) => {
   cy.get(mainPage.containerNavTop)
-    .find(".sub-menu")
-    .find('[alt="DE"]')
+    .find(mainPage.subMenu)
+    .find(mainPage.altDE)
     .eq(0)
     .should("have.attr", "src", mainPage.imageDE)
     .click({ force: true });
@@ -80,14 +79,4 @@ Cypress.Commands.add("hoverOnAbboutUsAndOpenEventsTab", (url) => {
     .should("contain.text", "Events")
     .click();
   cy.url().should("contain", url);
-});
-
-Cypress.Commands.add("openStellenangebotePage", () => {
-  cy.visit("/de/karriere/stellenangebote/");
-  cy.title().should("eq", "QualityMinds | Stellenangebote");
-  cy.get("body").then((body) => {
-    if (body.find(mainPage.cookies)) {
-      cy.get(mainPage.buttonAllowCookies).click({ force: true });
-    }
-  });
 });

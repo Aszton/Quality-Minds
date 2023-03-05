@@ -6,6 +6,7 @@ declare global {
     interface Chainable {
       searchEvent(event: string): Chainable<void>;
       verifyThereAreNoEvents(event: string): Chainable<void>;
+      openCalendarInEvents(): Chainable<void>;
     }
   }
 }
@@ -21,4 +22,9 @@ Cypress.Commands.add("verifyThereAreNoEvents", (event) => {
     .and("contain.text", "There were no results found for")
     .find("strong")
     .should("contain.text", event);
+});
+
+Cypress.Commands.add("openCalendarInEvents", () => {
+  cy.get(events.openCalendar).click();
+  cy.get(events.calendar).should("be.visible");
 });
