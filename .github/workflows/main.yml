@@ -13,13 +13,11 @@ jobs:
       - name: Cypress run chrome
         uses: cypress-io/github-action@v5
         with:
-          command: cypress-dashboad-chrome
-      - name: Checkout firefox
-        uses: actions/checkout@v3
+          command: npm run cypress-dashboad-chrome
       - name: Cypress run firefox
         uses: cypress-io/github-action@v5
         with:
-          command: cypress-dashboad-firefox
+          command: npm run cypress-dashboad-firefox
       - name: "Upload Artifact"
         uses: actions/upload-artifact@v3
         with:
