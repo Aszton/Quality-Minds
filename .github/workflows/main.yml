@@ -8,12 +8,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Run Cypress tests
-        id: cypress
+      - name: Run Cypress tests in chrome
         uses: cypress-io/github-action@v5
         with:
-          command: npm run cypress-dashboad-chrome && npm run cypress-dashboad-firefox
-          parallel: true
+          command: npm run cypress-dashboad-chrome
+      - name: Run Cypress tests in firefox
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run cypress-dashboad-firefox
       - name: "Upload Artifact"
         if: always()
         uses: actions/upload-artifact@v3
