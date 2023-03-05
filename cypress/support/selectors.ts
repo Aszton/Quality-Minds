@@ -2,6 +2,8 @@ export const mainPage = {
   cookies: ".cmplz-cookiebanner",
   buttonAllowCookies: ".cmplz-accept",
   containerNavTop: "#et-top-navigation",
+  subMenu: ".sub-menu",
+  altDE: '[alt="DE"]',
   imageDE:
     "https://r9w2g9k2.rocketcdn.me/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png",
   flagDE: '[href="https://qualityminds.com/de/"]',
@@ -25,4 +27,23 @@ export const events = {
   buttonSearch: ".tribe-common-c-btn",
   containerMessage:
     ".tribe-common-c-loader__dot > .tribe-events-c-messages__message",
+  openCalendar: ".tribe-common-h3",
+  calendar: ".datepicker",
+};
+
+export const stellenangebote = {
+  containerJob: ".awsm-job-item",
+  inputApplicantName: "#awsm-applicant-name",
+  inputApplicantEmail: "#awsm-applicant-email",
+  buttonSenden: "#awsm-application-submit-btn",
+  errorApplicantName: "#awsm-applicant-name-error",
+  errorApplicantEmail: "#awsm-applicant-email-error",
+  errorApplicantPhone: "#awsm-applicant-phone-error",
+  errorCoverLetter: "#awsm-cover-letter-error",
+  jobDescription: ".has-medium-font-size",
+  inputCoverLetter: "#awsm-cover-letter",
+  cvFileSend: '[type="file"]',
+  successSendFile: '[for="awsm-application-file"]',
+  cvFileName: ".custom-input",
+  checkboxPrivacyPolicy: "#awsm_form_privacy_policy",
 };

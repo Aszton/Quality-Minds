@@ -1,7 +1,6 @@
 import { defineConfig } from "cypress";
 
 export default defineConfig({
-  chromeWebSecurity: false,
   experimentalModifyObstructiveThirdPartyCode: true,
   experimentalMemoryManagement: true,
   e2e: {
