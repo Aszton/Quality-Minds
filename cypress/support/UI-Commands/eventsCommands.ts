@@ -5,7 +5,6 @@ declare global {
   namespace Cypress {
     interface Chainable {
       searchEvent(event: string): Chainable<void>;
-      aaa(event: string): Chainable<void>;
       verifyThereAreNoEvents(event: string): Chainable<void>;
     }
   }
@@ -13,7 +12,7 @@ declare global {
 
 Cypress.Commands.add("searchEvent", (event) => {
   cy.get(events.inputEvent).type(event).should("have.value", event);
-  cy.get(events.buttonSearch).click();
+  cy.get(events.buttonSearch).click({ force: true });
 });
 
 Cypress.Commands.add("verifyThereAreNoEvents", (event) => {

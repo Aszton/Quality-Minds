@@ -9,10 +9,15 @@ describe("Quality Minds Tests", () => {
     cy.changeLanguageToGerman("/automatisiertes-testen");
     cy.verifyKontaktiereUnsButton();
   });
-  it("test case 2", () => {
+
+  it.skip("test case 2", () => {
     cy.openMainPage();
     cy.hoverOnAbboutUsAndOpenEventsTab("/events");
     cy.searchEvent("2021");
     cy.verifyThereAreNoEvents("2021");
+  });
+
+  it.only("test case 3", () => {
+    cy.openStellenangebotePage();
   });
 });

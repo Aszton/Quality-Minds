@@ -5,14 +5,22 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      matrix:
+        containers: [1, 2]
     steps:
-      - name: Checkout
+      - name: Checkout chrome
         uses: actions/checkout@v3
-      - name: Cypress run
+      - name: Cypress run chrome
         uses: cypress-io/github-action@v5
         with:
-          command: npm run cypress-dashboad
-      - name: 'Upload Artifact'
+          command: cypress-dashboad-chrome
+      - name: Checkout firefox
+        uses: actions/checkout@v3
+      - name: Cypress run firefox
+        uses: cypress-io/github-action@v5
+        with:
+          command: cypress-dashboad-firefox
+      - name: "Upload Artifact"
         uses: actions/upload-artifact@v3
         with:
           name: Cypress Quality Minds report

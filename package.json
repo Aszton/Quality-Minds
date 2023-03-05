@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "chrome-headed": "npx cypress run --browser chrome --headed",
-    "cypress-dashboad": "npx cypress run --browser chrome --record --key 5c36a0cc-7695-47b2-a3b8-71cb10a8e905"
+    "cypress-dashboad-chrome": "npx cypress run --browser chrome --record --key 5c36a0cc-7695-47b2-a3b8-71cb10a8e905",
+    "cypress-dashboad-firefox": "npx cypress run --browser firefox --record --key 5c36a0cc-7695-47b2-a3b8-71cb10a8e905"
   },
   "repository": {
     "type": "git",
