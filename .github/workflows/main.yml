@@ -5,10 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        containers: [1, 2]
     steps:
-      - name: Checkout chrome
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Cypress run chrome
         uses: cypress-io/github-action@v5
