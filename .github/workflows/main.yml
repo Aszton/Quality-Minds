@@ -8,11 +8,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cypress run
+      - name: Run Cypress tests in chrome
+        if: always()  
         uses: cypress-io/github-action@v5
         with:
-          command: npm run cypress-dashboad
-      - name: 'Upload Artifact'
+          command: npm run cypress-dashboad-chrome
+      - name: Run Cypress tests in firefox
+        if: always()
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run cypress-dashboad-firefox
+      - name: "Upload Artifact"
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Cypress Quality Minds report
