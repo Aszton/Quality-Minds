@@ -10,14 +10,14 @@ describe("Quality Minds Tests", () => {
     cy.verifyKontaktiereUnsButton();
   });
 
-  it.skip("test case 2", () => {
+  it("test case 2", () => {
     cy.openMainPage();
     cy.hoverOnAbboutUsAndOpenEventsTab("/events");
     cy.searchEvent("2021");
     cy.verifyThereAreNoEvents("2021");
   });
 
-  it.only("test case 3", () => {
+  it("test case 3", () => {
     cy.openStellenangebotePage();
   });
 });
