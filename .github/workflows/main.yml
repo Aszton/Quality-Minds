@@ -9,10 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Run Cypress tests in chrome
+        if: always()  
         uses: cypress-io/github-action@v5
         with:
           command: npm run cypress-dashboad-chrome
       - name: Run Cypress tests in firefox
+        if: always()
         uses: cypress-io/github-action@v5
         with:
           command: npm run cypress-dashboad-firefox
