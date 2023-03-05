@@ -13,6 +13,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           command: npm run cypress-dashboad-chrome && npm run cypress-dashboad-firefox
+          parallel: true
       - name: "Upload Artifact"
         if: always()
         uses: actions/upload-artifact@v3
